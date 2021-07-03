@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Gallary from "./components/Gallary/Gallary";
+import ImageSlider from "./components/ImageSlider/ImageSlider";
 
 function App() {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [activateImageSlider, setactivateImageSlider] = useState(false);
+
+  const changeSelectedImage = (index) => {
+    console.log(index);
+    setSelectedIndex(index);
+    setactivateImageSlider(true);
+    console.log(selectedIndex, activateImageSlider);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Gallary
+        changeSelectedImage={changeSelectedImage}
+        setactivateImageSlider={setactivateImageSlider}
+      />
+      {activateImageSlider ? (
+        <ImageSlider
+          selectedIndex={selectedIndex}
+          ImageSlider={ImageSlider}
+          setactivateImageSlider={setactivateImageSlider}
+        />
+      ) : null}
     </div>
   );
 }

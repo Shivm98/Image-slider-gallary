@@ -1,0 +1,19 @@
+.gallary {
+  max-width: 120rem;
+  margin: 5rem auto;
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  gap: 1rem;
+}
+
+.gallary .img-container {
+  width: 100%;
+}
+
+.gallary .img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
